@@ -1,0 +1,36 @@
+
+#Box_title {
+    margin-left: 120px;
+    font-size: 50px;
+    font-family: "Courrier New", monospace;
+    font-weight: bold;
+    width: 1000px;
+}
+
+#Page {
+    background-color: #f2e8cf;
+}
+
+/*Aligne le texte et la marguerite*/
+
+.align {
+    display: flex;
+    align-items: center; 
+    gap: 20px; 
+}
+
+.align img {
+    width: 250px;
+    height: auto;
+}
+
+.align p {
+    flex: 1; 
+}
+
+/*déplace le texte pour un peu de style :) */
+
+.Origin_text {
+    transform: translate(-100%);
+    transition: transform 0.5s ease;
+}
