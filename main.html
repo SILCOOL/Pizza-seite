@@ -10,15 +10,20 @@
 
   <body id="Page">
     <div id="Box_title">
-      Die Pizza, das ultimative Gericht
+      Onkel Marios Pizza
     </div>
+    <div>
+      <button command="show-modal"  commandfor="Intro"  id="Pipi">Über unser Restaurant</button>
 
-    <button id="Pipi">Informationen</button>
-    
-    <!--Paraghraphe animer présentation de la pizzerria-->
-    <div id="Origin" class="align">
-      <img id="Margheritta" src="./Img/Margherita.png" alt="Margherita"> 
-      <p class="Origin_text">caca</p>
+      <dialog class="Pop_up" id="Intro">
+        <p class="PopText">Ich heiße Marco und Ich bin 23 Jahre alt und sehr neugierig. Ich liebe es, neue Dinge auszuprobieren. 
+          Eines Tages hatte ich eine verrückte Idee: Warum nicht ein normales Gericht mit einer Pizza mischen?
+         
+          Ich habe viel in meiner Küche experimentiert. Am Ende habe ich meine eigene Pizzeria eröffnet. 
+          Hier findest du besondere Pizzen mit ungewöhnlichem Geschmack.
+        </p> 
+        <button class="Danke" commandfor="Intro" command="close">Danke</button>
+      </dialog>
     </div>
   </body>
 </html>

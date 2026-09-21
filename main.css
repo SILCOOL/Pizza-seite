@@ -1,14 +1,17 @@
 
 #Box_title {
-    margin-left: 120px;
+    margin-left: 660px;
     font-size: 50px;
     font-family: "Courrier New", monospace;
     font-weight: bold;
-    width: 1000px;
+    padding : 20px;
+    width: 560px;
+    background-color: #ee9b3a;
+    border-radius: 20px;
 }
 
 #Page {
-    background-color: #f2e8cf;
+    background-color: #e8842c;
 }
 
 #Pipi {
@@ -16,34 +19,36 @@
     padding: 10px;
     font-family: "Courrier New", monospace;
     font-weight: bold;
-    background-color: #f2e8cf;
+    background-color: #ee9b3a;
     border: none;
+    border-radius: 5px;
 }
 
 #Pipi:hover {
-     filter: brightness(0.85);
+    filter: brightness(0.85);
 }
 
-/*Aligne le texte et la marguerite*/
-
-.align {
-    display: flex;
-    align-items: center; 
-    gap: 20px; 
+.Pop_up {
+    background-color: #ee9b3a;
+    border: none;
+    border-radius: 30px;
+    width: 500px;
 }
 
-.align img {
-    width: 250px;
-    height: auto;
+.Danke {
+    padding: 10px;
+    font-family: "Courrier New", monospace;
+    font-weight: bold;
+    background-color: #d9691f;
+    border: none;
+    border-radius: 20px;
 }
 
-.align p {
-    flex: 1; 
+.Danke:hover {
+    filter: brightness(0.85);
 }
 
-/*déplace le texte pour un peu de style :) */
-
-.Origin_text {
-    transform: translate(-100%);
-    transition: transform 0.5s ease;
+.PopText {
+    font-weight: bolder;
+    font-family: "Courrier New", monospace;
 }
