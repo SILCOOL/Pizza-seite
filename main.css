@@ -11,6 +11,19 @@
     background-color: #f2e8cf;
 }
 
+#Pipi {
+    margin-left: 20px;
+    padding: 10px;
+    font-family: "Courrier New", monospace;
+    font-weight: bold;
+    background-color: #f2e8cf;
+    border: none;
+}
+
+#Pipi:hover {
+     filter: brightness(0.85);
+}
+
 /*Aligne le texte et la marguerite*/
 
 .align {
