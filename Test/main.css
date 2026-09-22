@@ -1,0 +1,16 @@
+
+#Box_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-family: "Courrier New", monospace;
+    font-weight: bold;
+    padding : 20px;
+    background-color: #f2e8cf;
+    border-radius: 20px;
+}
+
+#Page {
+    background-color: #432818;
+}

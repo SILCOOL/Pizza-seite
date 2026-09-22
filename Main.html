@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Onkel Marios Pizzeria — Pizzeria Hamburg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    box-sizing:border-box;
+    --apricot-glow:#f2a154;
+    --amber-orange:#ee9b3a;
+    --pumpkin:#e8842c;
+    --burnt-orange:#d9691f;
+    --sunny-apricot:#ffb45e;
+    --dark-wine:#6f1d1b;
+    --camel:#bb9457;
+    --dark-coffee:#432818;
+    --chocolate-brown:#99582a;
+    --light-apricot:#ffe6a7;
+    --hunter-green:#386641;
+    --sage-green:#6a994e;
+    --yellow-green:#a7c957;
+    --champagne-mist:#f2e8cf;
+    --blushed-brick:#bc4749;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    background:var(--champagne-mist);
+    color:var(--dark-coffee);
+    font-family:'Work Sans',sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    line-height:1.05;
+    margin:0;
+    color:var(--dark-wine);
+  }
+  a{color:inherit;}
+  img{max-width:100%;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 28px;}
+  .scrollx{overflow-x:auto;}
+
+  /* NAV */
+  header{
+    position:sticky;top:0;top:env(safe-area-inset-top,0px);
+    z-index:50;
+    background:var(--champagne-mist);
+    border-bottom:1px solid rgba(67,40,24,.15);
+  }
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;}
+  .brand{font-family:'Fraunces',serif;font-weight:700;font-size:1.35rem;color:var(--dark-wine);text-decoration:none;letter-spacing:.01em;}
+  .brand em{font-style:italic;color:var(--burnt-orange);}
+  .navlinks{display:flex;gap:26px;font-size:.95rem;}
+  .navlinks a{text-decoration:none;color:var(--dark-coffee);border-bottom:2px solid transparent;padding-bottom:2px;transition:border-color .2s;}
+  .navlinks a:hover,.navlinks a:focus-visible{border-color:var(--burnt-orange);}
+  .navlinks{display:none;}
+  @media(min-width:720px){.navlinks{display:flex;}}
+
+  /* HERO */
+  .hero{position:relative;padding:74px 0 64px;overflow:hidden;}
+  .hero::before{
+    content:"";position:absolute;right:-120px;top:-140px;width:440px;height:440px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, var(--sunny-apricot), var(--pumpkin) 60%, var(--burnt-orange) 100%);
+    opacity:.9;
+  }
+  .hero-grid{position:relative;display:grid;gap:36px;}
+  @media(min-width:860px){.hero-grid{grid-template-columns:1.15fr .85fr;align-items:center;}}
+  .kicker{font-size:.92rem;color:var(--chocolate-brown);margin-bottom:14px;}
+  .hero h1{font-size:clamp(2.4rem,6vw,4.1rem);}
+  .hero p.lede{margin-top:22px;font-size:1.15rem;max-width:46ch;color:var(--dark-coffee);}
+  .hero-cta{margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:14px 26px;border-radius:2px;text-decoration:none;font-weight:600;font-size:.98rem;
+    transition:transform .15s ease, background .2s ease;
+  }
+  .btn-solid{background:var(--dark-wine);color:var(--light-apricot);}
+  .btn-solid:hover{background:var(--burnt-orange);transform:translateY(-2px);}
+  .btn-line{border:1.5px solid var(--dark-wine);color:var(--dark-wine);}
+  .btn-line:hover{background:var(--dark-wine);color:var(--light-apricot);transform:translateY(-2px);}
+
+  /* pizza dial illustration */
+  .dial{position:relative;width:min(340px,80vw);aspect-ratio:1;margin:0 auto;}
+  .dial-ring{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from -20deg, var(--pumpkin) 0 10%, var(--blushed-brick) 10% 22%, var(--sage-green) 22% 34%, var(--amber-orange) 34% 46%, var(--hunter-green) 46% 58%, var(--burnt-orange) 58% 70%, var(--camel) 70% 82%, var(--yellow-green) 82% 100%);
+    box-shadow:0 18px 40px rgba(111,29,27,.25);
+  }
+  .dial-core{position:absolute;inset:22%;border-radius:50%;background:var(--champagne-mist);display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;}
+  .dial-core span{font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--dark-wine);font-size:1rem;}
+
+  section{padding:70px 0;}
+  .eyebrow-free h2{font-size:clamp(1.8rem,4vw,2.6rem);}
+
+  /* STORY */
+  .story{background:var(--dark-coffee);color:var(--light-apricot);}
+  .story h2{color:var(--light-apricot);}
+  .story-grid{display:grid;gap:44px;}
+  @media(min-width:860px){.story-grid{grid-template-columns:.9fr 1.1fr;align-items:start;}}
+  .story-figure{
+    background:var(--chocolate-brown);
+    border-radius:2px;
+    padding:28px;
+    font-family:'Fraunces',serif;
+  }
+  .age-num{font-size:5rem;color:var(--sunny-apricot);line-height:1;}
+  .age-cap{font-size:1rem;color:var(--light-apricot);margin-top:8px;}
+  .story p{max-width:62ch;color:var(--champagne-mist);font-size:1.05rem;}
+  .story p+p{margin-top:18px;}
+  .story strong{color:var(--sunny-apricot);font-weight:600;}
+
+  /* MAP OF REGIONS - menu */
+  .menu{background:var(--champagne-mist);}
+  .menu-head{max-width:60ch;margin-bottom:44px;}
+  .menu-head p{color:var(--chocolate-brown);margin-top:14px;font-size:1.05rem;}
+  .region-list{display:grid;gap:2px;background:rgba(67,40,24,.15);border:1px solid rgba(67,40,24,.15);}
+  .region{
+    background:var(--champagne-mist);
+    display:grid;grid-template-columns:1fr;gap:6px;
+    padding:26px 24px;
+    position:relative;
+  }
+  @media(min-width:720px){.region{grid-template-columns:180px 1fr auto;align-items:center;gap:22px;}}
+  .region .place{font-family:'Fraunces',serif;font-style:italic;color:var(--burnt-orange);font-size:1rem;}
+  .region h3{font-size:1.4rem;color:var(--dark-wine);}
+  .region .desc{color:var(--dark-coffee);font-size:.98rem;max-width:52ch;}
+  .region .price{font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;color:var(--dark-wine);justify-self:end;}
+  .region::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--tag,var(--pumpkin));
+  }
+  .r1{--tag:var(--blushed-brick);}
+  .r2{--tag:var(--sage-green);}
+  .r3{--tag:var(--amber-orange);}
+  .r4{--tag:var(--hunter-green);}
+  .r5{--tag:var(--camel);}
+
+  /* VALUES */
+  .values{background:var(--dark-wine);color:var(--light-apricot);}
+  .values h2{color:var(--light-apricot);}
+  .value-grid{display:grid;gap:30px;margin-top:40px;}
+  @media(min-width:720px){.value-grid{grid-template-columns:repeat(3,1fr);}}
+  .value-card h3{color:var(--sunny-apricot);font-size:1.25rem;margin-bottom:10px;}
+  .value-card p{color:var(--light-apricot);font-size:.98rem;}
+
+  /* VISIT */
+  .visit{background:var(--champagne-mist);}
+  .visit-grid{display:grid;gap:40px;}
+  @media(min-width:860px){.visit-grid{grid-template-columns:1fr 1fr;}}
+  .hours dt{font-weight:600;color:var(--dark-wine);}
+  .hours dl{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;margin-top:18px;}
+  .hours dd{margin:0;color:var(--dark-coffee);}
+  address{font-style:normal;margin-top:10px;color:var(--dark-coffee);}
+  .visit-card{background:var(--sunny-apricot);padding:30px;border-radius:2px;}
+  .visit-card h3{margin-bottom:14px;}
+
+  footer{background:var(--dark-coffee);color:var(--camel);padding:34px 0;font-size:.9rem;}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .btn:hover{transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="#top">Onkel Marios <em>pizzeria</em></a>
+    <div class="navlinks">
+      <a href="#geschichte">Geschichte</a>
+      <a href="#karte">Speisekarte</a>
+      <a href="#haltung">Haltung</a>
+      <a href="#besuch">Besuch uns</a>
+    </div>
+    <a class="btn btn-solid" href="#besuch" style="padding:10px 20px;font-size:.9rem;">Tisch reservieren</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">Pizzeria am Hafen — Hamburg-Ottensen</p>
+        <h1>Ein Teig,<br>viele Heimatorte.</h1>
+        <p class="lede">Onkel Marios pizzeria backt neapolitanischen Pizzateig und belegt ihn mit Gerichten, die eigentlich nie auf eine Pizza gehören — von der Schwäbischen Alb bis zur Adria. Entstanden aus der Rastlosigkeit eines 23-Jährigen, der sich nicht zwischen den Küchen entscheiden wollte.</p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#karte">Zur Speisekarte</a>
+          <a class="btn btn-line" href="#geschichte">Die Geschichte lesen</a>
+        </div>
+      </div>
+      <div class="dial">
+        <div class="dial-ring"></div>
+        <div class="dial-core"><span>Fünf Regionen, ein Ofen</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="geschichte">
+    <div class="wrap story-grid">
+      <div class="story-figure">
+        <div class="age-num">23</div>
+        <div class="age-cap">Jahre alt, als Mario Brandt<br>Kai 23 eröffnete</div>
+      </div>
+      <div class="eyebrow-free">
+        <h2>Warum ein 23-Jähriger eine Pizzeria ohne Grenzen wollte</h2>
+        <p>Théo Brandt ist in Hamburg-Ottensen aufgewachsen, drei Straßen vom Elbufer entfernt, wo sein Großvater als Hafenarbeiter fast jede Nation der Welt hat anlegen sehen. <strong>„Bei uns zu Hause gab es sonntags nie dasselbe zweimal“</strong>, erzählt Théo. Seine Mutter kochte badische Maultaschen, sein Vater brachte von Reisen Rezepte aus dem Balkan mit, und ein Nachbar aus Neapel brachte ihm mit vierzehn das Pizzabacken bei.</p>
+        <p>Nach einer Kochlehre und zwei Jahren in Pizzerien in Neapel und Berlin stand für Théo fest: Er wollte keine Trattoria eröffnen, die nur italienisch bleibt, und auch keine deutsche Wirtschaft, die nie über den Tellerrand schaut. <strong>Kai 23</strong> — benannt nach dem Kai, an dem sein Großvater sein Leben lang Schiffe entladen hat, und nach dem Alter, in dem Théo selbst anlegte — wurde eröffnet, als er 23 Jahre alt war: ein Anlegeplatz, an dem jede Woche eine andere Küche im Teig andockt.</p>
+        <p>Der Ofen steht fest in Hamburg, aber die Beläge reisen. Jede Pizza auf der Karte trägt den Namen des Ortes, aus dem sie ihre Seele hat — und wird von dort mit echten Zutaten beliefert, nicht mit Klischees.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="karte">
+    <div class="wrap">
+      <div class="menu-head">
+        <h2>Die Karte</h2>
+        <p>Fünf Pizzen, fünf Herkünfte. Der Teig bleibt neapolitanisch, 48 Stunden gereift — was darauf liegt, kommt von woanders.</p>
+      </div>
+      <div class="region-list scrollx">
+        <div class="region r1">
+          <div class="place">Balkan</div>
+          <h3>Ćevapi-Vatra</h3>
+          <div class="desc">Hausgemachte Ćevapčići, Ajvar, roter Zwiebel und Kajmak-Klecks nach dem Backen.</div>
+          <div class="price">14 €</div>
+        </div>
+        <div class="region r2">
+          <div class="place">Schwaben</div>
+          <h3>Maultaschen-Kai</h3>
+          <div class="desc">Geschmorte Maultaschen-Füllung, Bergkäse, gerösteter Lauch, Muskat-Sahnesoße statt Tomate.</div>
+          <div class="price">13,50 €</div>
+        </div>
+        <div class="region r3">
+          <div class="place">Naher Osten</div>
+          <h3>Za'atar-Anlegestelle</h3>
+          <div class="desc">Labneh-Basis, confierte Auberginen, Za'atar, Granatapfelkerne, Sumach-Zwiebeln.</div>
+          <div class="price">13 €</div>
+        </div>
+        <div class="region r4">
+          <div class="place">Alpen</div>
+          <h3>Kaspressknödel-Berg</h3>
+          <div class="desc">Geröstete Kaspressknödel-Scheiben, Sauerkraut, Speck, Bergkäse, Kümmel.</div>
+          <div class="price">14,50 €</div>
+        </div>
+        <div class="region r5">
+          <div class="place">Neapel — der Ursprung</div>
+          <h3>Marinara del Nonno</h3>
+          <div class="desc">San-Marzano-Tomaten, Oregano, Knoblauch, natives Olivenöl — die Pizza, mit der alles begann.</div>
+          <div class="price">10,50 €</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="values" id="haltung">
+    <div class="wrap">
+      <h2>Was Onkel Marios pizzeria zusammenhält</h2>
+      <div class="value-grid">
+        <div class="value-card">
+          <h3>Herkunft vor Fusion</h3>
+          <p>Jedes Rezept stammt von jemandem, der die Region selbst kennt — keine erfundene Kombination am Reißbrett.</p>
+        </div>
+        <div class="value-card">
+          <h3>Ein Teig, echte Zeit</h3>
+          <p>48 Stunden Kaltgare, italienisches Mehl, Hamburger Leitungswasser — die einzige Konstante auf der ganzen Karte.</p>
+        </div>
+        <div class="value-card">
+          <h3>Wöchentlich neu</h3>
+          <p>Zusätzlich zur festen Karte steht jede Woche eine Gastregion auf der Tafel, ausgesucht von Théo und dem Team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="besuch">
+    <div class="wrap visit-grid">
+      <div class="hours">
+        <h2>Besuch uns</h2>
+        <address>
+          Große Elbstraße 23<br>
+          22767 Hamburg-Ottensen
+        </address>
+        <dl>
+          <dt>Di–Do</dt><dd>17:00–22:30 Uhr</dd>
+          <dt>Fr–Sa</dt><dd>12:00–23:00 Uhr</dd>
+          <dt>So</dt><dd>12:00–21:00 Uhr</dd>
+          <dt>Mo</dt><dd>Ruhetag</dd>
+        </dl>
+      </div>
+      <div class="visit-card">
+        <h3>Tisch reservieren</h3>
+        <p>Für Gruppen ab sechs Personen bitten wir um eine Reservierung — die Öfen erlauben nur eine begrenzte Zahl Pizzen gleichzeitig.</p>
+        <p style="margin-top:16px;"><strong>Telefon:</strong> 040 23 23 23 45<br><strong>E-Mail:</strong> tisch@kai23-hamburg.de</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Onkel Marios pizzeria — Große Elbstraße 23, 22767 Hamburg</span>
+    <span>© 2026 Onkel Marios pizzeria</span>
+  </div>
+</footer>
+
+</body>
+</html>
